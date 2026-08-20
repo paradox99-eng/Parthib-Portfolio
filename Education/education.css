@@ -1,0 +1,610 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap');
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    border: none;
+    outline: none;
+    font-family: 'Poppins';
+}
+
+
+html {
+    font-size: 62.5%;
+}
+
+
+body {
+    width: 100%;
+    min-height: 100vh;
+    overflow-x: hidden;
+    background-color: black;
+    color: white;
+}
+
+
+/* ================= HEADER ================= */
+
+header {
+    margin-top: 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 1rem 4.5%;
+    background-color: transparent;
+    filter: drop-shadow(10px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+}
+
+
+.logo {
+    font-size: 3rem;
+    color: #b74b4b;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.5s ease;
+}
+
+
+.logo:hover {
+    transform: scale(1.1);
+}
+
+
+/* ================= NAVIGATION ================= */
+
+nav a {
+    font-size: 1.8rem;
+    color: white;
+    margin-left: 4rem;
+    font-weight: 500;
+    transition: 0.3s ease;
+    border-bottom: 3px solid transparent;
+}
+
+
+nav a:hover,
+nav a.active {
+    color: #b74b4b;
+    border-bottom: 3px solid #b74b4b;
+}
+
+
+/* ================= EDUCATION ================= */
+
+.education {
+    min-height: 100vh;
+    padding: 13rem 9% 8rem;
+}
+
+
+/* Title */
+
+.section-title {
+    text-align: center;
+    margin-bottom: 7rem;
+    animation: fadeDown 1s ease forwards;
+}
+
+@keyframes fadeDown {
+
+    0% {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+.section-title h1 {
+    font-size: 5.5rem;
+    font-weight: 700;
+}
+
+
+.section-title h1 span {
+    color: #b74b4b;
+}
+
+
+.section-title p {
+    font-size: 1.6rem;
+    color: #aaa;
+    margin-top: 1rem;
+}
+
+
+/* ================= TIMELINE ================= */
+
+.timeline {
+    position: relative;
+    max-width: 1000px;
+    margin: auto;
+}
+
+
+/* Middle line */
+
+.timeline::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background-color: #b74b4b;
+    transform: translateX(-50%);
+    box-shadow: 0 0 15px #b74b4b;
+    animation: timelineGrow 1.5s ease forwards;
+    transform-origin: top;
+}
+
+@keyframes timelineGrow {
+
+    0% {
+        transform: translateX(-50%) scaleY(0);
+    }
+
+    100% {
+        transform: translateX(-50%) scaleY(1);
+    }
+
+}
+
+/* Timeline item */
+
+.timeline-item {
+    position: relative;
+    width: 50%;
+    padding: 2rem 4rem;
+}
+
+
+/* Left side */
+
+.timeline-item:nth-child(odd) {
+    left: 0;
+    text-align: right;
+}
+
+
+/* Right side */
+
+.timeline-item:nth-child(even) {
+    left: 50%;
+    text-align: left;
+}
+
+.timeline-item:nth-child(1) {
+    animation: slideRight 0.8s ease 0.3s forwards;
+    opacity: 0;
+}
+
+
+.timeline-item:nth-child(2) {
+    animation: slideLeft 0.8s ease 0.6s forwards;
+    opacity: 0;
+}
+
+
+.timeline-item:nth-child(3) {
+    animation: slideRight 0.8s ease 0.9s forwards;
+    opacity: 0;
+}
+
+
+@keyframes slideRight {
+
+    0% {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+}
+
+
+@keyframes slideLeft {
+
+    0% {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+}
+
+
+/* ================= TIMELINE DOT ================= */
+
+.timeline-dot {
+    position: absolute;
+    width: 55px;
+    height: 55px;
+    background-color: black;
+    border: 3px solid #b74b4b;
+    border-radius: 50%;
+    top: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #b74b4b;
+    font-size: 2rem;
+    box-shadow: 0 0 20px #b74b4b;
+    z-index: 5;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+
+    0% {
+        box-shadow: 0 0 10px #b74b4b;
+    }
+
+    50% {
+        box-shadow:
+            0 0 20px #b74b4b,
+            0 0 35px rgba(183, 75, 75, 0.4);
+    }
+
+    100% {
+        box-shadow: 0 0 10px #b74b4b;
+    }
+
+}
+
+/* Left dot */
+
+.timeline-item:nth-child(odd) .timeline-dot {
+    right: -27px;
+}
+
+
+/* Right dot */
+
+.timeline-item:nth-child(even) .timeline-dot {
+    left: -27px;
+}
+
+
+/* ================= EDUCATION CARD ================= */
+
+.timeline-content {
+    padding: 2.5rem;
+
+    background-color: #0b0b0b;
+
+    border: 2px solid #b74b4b;
+    border-radius: 2rem;
+
+    transition: 0.4s ease;
+
+    box-shadow: 0 0 10px rgba(183, 75, 75, 0.15);
+}
+
+
+/* Card hover */
+
+.timeline-content:hover {
+    transform: translateY(-10px) scale(1.02);
+
+    border-color: #d65c5c;
+
+    box-shadow:
+        0 0 15px #b74b4b,
+        0 0 35px rgba(183, 75, 75, 0.45);
+
+    transition: 0.4s ease;
+}   
+
+
+/* ================= YEAR ================= */
+
+.year {
+    display: inline-block;
+
+    color: #b74b4b;
+
+    font-size: 1.4rem;
+    font-weight: 600;
+
+    margin-bottom: 1rem;
+}
+
+
+.year i {
+    margin-right: 0.5rem;
+}
+
+
+/* ================= CARD HEADING ================= */
+
+.timeline-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+
+.timeline-content h3 {
+    font-size: 1.6rem;
+    font-weight: 500;
+    color: #ddd;
+
+    margin-bottom: 1.5rem;
+}
+
+
+.timeline-content h3 i {
+    color: #b74b4b;
+    margin-right: 0.5rem;
+}
+
+
+/* ================= DETAILS ================= */
+
+.details {
+    margin-top: 1.5rem;
+    padding-top: 1.2rem;
+
+    border-top: 1px solid rgba(183, 75, 75, 0.4);
+}
+
+
+.details p {
+    font-size: 1.4rem;
+    color: #aaa;
+    margin: 0.7rem 0;
+}
+
+
+.details strong {
+    color: #b74b4b;
+    font-weight: 600;
+}
+
+
+/* ================= MOBILE / SMALL DEVICES ================= */
+
+@media (max-width: 995px) {
+
+    header {
+        padding: 1rem 5%;
+    }
+
+    .logo {
+        font-size: 2.5rem;
+    }
+
+    nav a {
+        margin-left: 1.5rem;
+        font-size: 1.5rem;
+    }
+
+
+    /* EDUCATION */
+
+    .education {
+        padding: 12rem 5% 6rem;
+    }
+
+    .section-title {
+        margin-bottom: 5rem;
+    }
+
+    .section-title h1 {
+        font-size: 4.5rem;
+    }
+
+    .section-title p {
+        font-size: 1.4rem;
+    }
+
+
+    /* TIMELINE */
+
+    .timeline {
+        width: 100%;
+    }
+
+    .timeline::before {
+        left: 20px;
+        transform: none;
+    }
+
+
+    /* All cards become single column */
+
+    .timeline-item,
+    .timeline-item:nth-child(odd),
+    .timeline-item:nth-child(even) {
+        width: 100%;
+        left: 0;
+
+        padding-left: 6rem;
+        padding-right: 0;
+
+        text-align: left;
+    }
+
+
+    /* Timeline dots */
+
+    .timeline-item:nth-child(odd) .timeline-dot,
+    .timeline-item:nth-child(even) .timeline-dot {
+
+        left: -7px;
+        right: auto;
+
+        width: 54px;
+        height: 54px;
+    }
+
+
+    /* Cards */
+
+    .timeline-content {
+        width: 100%;
+        padding: 2rem;
+    }
+
+
+    .timeline-content h2 {
+        font-size: 2.2rem;
+    }
+
+    .timeline-content h3 {
+        font-size: 1.5rem;
+    }
+
+    .timeline-content p {
+        font-size: 1.3rem;
+    }
+
+}
+
+
+/* ================= VERY SMALL DEVICES ================= */
+
+@media (max-width: 600px) {
+
+    html {
+        font-size: 55%;
+    }
+
+
+    /* HEADER */
+
+    header {
+        margin-top: 10px;
+        padding: 1rem 5%;
+    }
+
+    .logo {
+        font-size: 2.2rem;
+    }
+
+    nav a {
+        font-size: 1.2rem;
+        margin-left: 0.8rem;
+    }
+
+
+    /* EDUCATION */
+
+    .education {
+        padding: 11rem 5% 5rem;
+    }
+
+
+    /* TITLE */
+
+    .section-title {
+        margin-bottom: 4rem;
+    }
+
+    .section-title h1 {
+        font-size: 3.6rem;
+    }
+
+    .section-title p {
+        font-size: 1.3rem;
+        padding: 0 1rem;
+    }
+
+
+    /* TIMELINE */
+
+    .timeline::before {
+        left: 15px;
+        width: 2px;
+    }
+
+
+    .timeline-item,
+    .timeline-item:nth-child(odd),
+    .timeline-item:nth-child(even) {
+
+        padding-left: 4.5rem;
+        padding-right: 0;
+
+        margin-bottom: 2rem;
+    }
+
+
+    /* DOT */
+
+    .timeline-item:nth-child(odd) .timeline-dot,
+    .timeline-item:nth-child(even) .timeline-dot {
+
+        left: -10px;
+
+        width: 50px;
+        height: 50px;
+
+        font-size: 1.7rem;
+    }
+
+
+    /* CARD */
+
+    .timeline-content {
+
+        padding: 1.8rem;
+
+        border-radius: 1.5rem;
+    }
+
+
+    .timeline-content h2 {
+        font-size: 1.9rem;
+        line-height: 1.4;
+    }
+
+
+    .timeline-content h3 {
+        font-size: 1.4rem;
+        line-height: 1.5;
+    }
+
+
+    .timeline-content p {
+        font-size: 1.3rem;
+        line-height: 1.6;
+    }
+
+
+    .year {
+        font-size: 1.3rem;
+    }
+
+
+    .details {
+        margin-top: 1.2rem;
+        padding-top: 1rem;
+    }
+
+
+    .details p {
+        font-size: 1.3rem;
+    }
+
+}
